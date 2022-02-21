@@ -1,6 +1,7 @@
 //Dependencies and Configurations
 const express = require("express")
 const mongoose = require("mongoose")
+const userRoutes = require("./controllers/users")
 require("dotenv").config()
 
 const app = express()
@@ -9,6 +10,7 @@ const app = express()
 app.use(express.json())
 
 //Routes
+app.use("/users", userRoutes)
 
 //database connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
